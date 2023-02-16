@@ -1,0 +1,2 @@
+# Zufallsgenerator.Namen
+Namen Zufallsgenerator
