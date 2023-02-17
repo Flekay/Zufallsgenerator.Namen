@@ -1,17 +1,11 @@
 import { confetti } from "https://cdn.jsdelivr.net/npm/tsparticles-confetti/+esm";
 
 const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 999 };
-var names = [];
-var winner = "";
 
 function randomInRange(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-function newname($name) {
-    names.push($name);
-    document.getElementById("namelist").innerHTML += `<li>${$name}</li>`;
-}
 
 function removename($name) {
     names = names.filter(function(value, index, arr) {
@@ -19,8 +13,12 @@ function removename($name) {
     });
     document.getElementById("namelist").innerHTML = "";
     names.forEach(function(item) {
-        document.getElementById("namelist").innerHTML += `<li>${item}</li>`;
+        document.getElementById("namelist").innerHTML += `<li onclick="removename('${item}');">${item}</li>`;
     });
+}
+function newname($name) {
+    names.push($name);
+    document.getElementById("namelist").innerHTML += `<li onclick="removename('${$name}');">${$name}</li>`;
 }
 
 

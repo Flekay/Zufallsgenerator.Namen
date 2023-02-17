@@ -28,6 +28,20 @@
             <button id="keepname">keep name in list</button>
         </div>
     </div>
+    <script>
+        
+        var names = [];
+        var winner = "";
+        function removename($name) {
+            names = names.filter(function(value, index, arr) {
+                return value != $name;
+            });
+            document.getElementById("namelist").innerHTML = "";
+            names.forEach(function(item) {
+                document.getElementById("namelist").innerHTML += `<li onclick="removename('${item}');">${item}</li>`;
+            });
+        }
+    </script>
     <script type="module" src="./main.js"></script>
 </body>
 
